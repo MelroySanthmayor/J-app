@@ -1,28 +1,36 @@
-.App {
+.card {
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    right:30px;
+    top:100px;
+    background-color: rgba(0, 0, 0, 0.618);
+    color:skyblue;
+    
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+.Image{
+  
+  height: 100px;
+  width:100px;
+}
+.container{
+  
+  float:right;
+  padding: 12px 16px;
+}
+#header{
+  height:50px;
+  width:100%;
+  opacity:0.5;
+  background-color: black;
+  color:whitesmoke;
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  padding-top:20px;
+  font-size: 2em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
