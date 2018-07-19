@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import User from './components/User'
 import image from './dummy-user.png'
 import './App.css';
-import Itemlist from './components/Itemlist'
+//import Itemlist from './components/Itemlist'
 import AddItem from './components/AddItem'
 
 class App extends Component {
@@ -15,25 +15,31 @@ class App extends Component {
   }
   render() {
     var items = this.state.items;
-    items = items.map(
+    let lis = []
+                for(let i in this.state.items){
+                  
+                    lis.push(<li key={i}>{this.state.items[i]} <span >x</span></li>)
+                  }
+                
+    /*items = items.map(
       function(item, index) 
       {
         return <Itemlist item={item} key={index} onDelete={this.onDelete} />;
       }.bind(this)
-    );
+    );*/
     return (
       <div className="App">
       <nav>
         <header id="header">Jewellery Collection</header>
       </nav>
         <User/>
-        <ul>{items}</ul>
-        <AddItem onAdd={this.onAdd}/>
+        <ul>{this.lis}</ul>
+       
 
       </div>
     );
   }
-  //Custom Functions
+  //Custom Functions  <AddItem onAdd={this.onAdd}/>
   onDelete(item,key) {
     var i = this.state.items.indexOf(item);
     
