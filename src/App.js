@@ -19,17 +19,32 @@ class App extends Component {
     ]
   }
   render() {
+    
     var items = this.state.items;
     let lis = []
                 for(let i in items){
                   
                     lis.push(<li key={i} className="grid-item">
-                    <div className="card1">
-                      <img className="Img" src={items[i].image} alt="error"/>
+                    
+                      <img className="Img" src={items[i].image} alt="error" onClick={this.onclick}/>
                       <div className="container1">
                       {items[i].name}
                       </div>
-                      <span class="close">&times;</span>
+                      <span class="close1">&times;</span>
+                      <div id="myModal" class="modal">
+                      <div class="modal-content">
+                      <div class="modal-header">    
+                      <span class="close" onCilck={this.closeonclick}>&times;</span>
+                         <h2>Item Details</h2>
+                      </div>
+                      <div class="modal-body">
+                        <p>{items[i].type}</p>
+                        <p>{items[i].material}</p>
+                      </div>
+                      <div class="modal-footer">
+                      <h3>{items[i].name}</h3>
+                      </div>
+                      </div>
                       </div>
                       </li>)// Use Bucky method
                     
@@ -48,6 +63,7 @@ class App extends Component {
       </nav>
         <User/>
         <div >
+          <strong><h2>User Jewellry Collection</h2></strong>
           <ul className="grid-container">{lis}</ul>
         
         </div>
@@ -74,6 +90,16 @@ class App extends Component {
       })
 
   }
+  
+  onclick = function() {
+    let modal = document.getElementById('myModal');
+    modal.style.display = "block";
+}
+  closeonclick = function() {
+    let modal = document.getElementById('myModal');
+    modal.style.display = "none";
+}
+
 
 }
 
