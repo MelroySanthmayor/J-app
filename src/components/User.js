@@ -15,7 +15,7 @@ export default class User extends Component{
     render(){
         
         return(
-            <div>
+        
             <div className="card">   
                 <img className="Image" src={this.state.image} alt="error"/>
                 <div className="container">
@@ -25,7 +25,7 @@ export default class User extends Component{
                 <strong>Contact.No:{this.state.contact}</strong><br/>
                 </div>
             </div> 
-            </div>
+            
 
         );
     }
