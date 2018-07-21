@@ -5,10 +5,12 @@ import bracelet from './bracelet.jpg'
 import necklace from './necklace.jpg'
 import ring from './ring.jpg'
 import './App.css';
-//import Itemlist from './components/Itemlist'
+
+import Itemlist from './components/Itemlist'
 import AddItem from './components/AddItem'
 
 class App extends Component {
+  
   state = {
     items:[{image:ring,name:'Ring',type:'1',material:'gold'},
            {image:necklace,name:'Necklace',type:'2',material:'silver'},
@@ -21,34 +23,21 @@ class App extends Component {
   render() {
     
     var items = this.state.items;
-    let lis = []
-                for(let i in items){
+    let that = this;
+            let  lis = items.map(function(item,i){
+                  return(
+                    <Itemlist key={i} index={i} 
+                    image={item.image} 
+                    name={item.name} 
+                    type={item.type} 
+                    material={item.material}
+                    Delete={that.onDelete.bind(that, i)}/>
+               // Use Bucky method
+                    
+                  )
                   
-                    lis.push(<li key={i} className="grid-item">
-                    
-                      <img className="Img" src={items[i].image} alt="error" onClick={this.onclick}/>
-                      <div className="container1">
-                      {items[i].name}
-                      </div>
-                      <span class="close1">&times;</span>
-                      <div id="myModal" class="modal">
-                      <div class="modal-content">
-                      <div class="modal-header">    
-                      <span class="close" onCilck={this.closeonclick}>&times;</span>
-                         <h2>Item Details</h2>
-                      </div>
-                      <div class="modal-body">
-                        <p>{items[i].type}</p>
-                        <p>{items[i].material}</p>
-                      </div>
-                      <div class="modal-footer">
-                      <h3>{items[i].name}</h3>
-                      </div>
-                      </div>
-                      </div>
-                      </li>)// Use Bucky method
-                    
-                  }
+
+                });
                 
     /*items = items.map(
       function(item, index) 
@@ -65,22 +54,25 @@ class App extends Component {
         <div >
           <strong><h2>User Jewellry Collection</h2></strong>
           <ul className="grid-container">{lis}</ul>
-        
+          
         </div>
-        
-       
 
       </div>
     );
   }
   //Custom Functions  <AddItem onAdd={this.onAdd}/>
-  onDelete(item,key) {
-    var i = this.state.items.indexOf(item);
+  onDelete(i,e) {
+    const items = Object.assign([],this.state.items);
+    items.splice(i,1);
+    this.setState({items:items})
+
+
+    /*var i = this.state.items.indexOf(item);
     
-    this.state.items.splice(i,1);
+    this.state.items.splice(i,1);*/
 
   }
-  onAdd(item){
+  /*onAdd(item){
       var updateditems = this.state.items
       updateditems.push(item);
       this.setState({
@@ -89,13 +81,13 @@ class App extends Component {
           {image:image,name:'Ring',type:'1',material:'gold'}]// trying to render one static addition of the input
       })
 
-  }
+  }*/
   
-  onclick = function() {
+  onclick() {
     let modal = document.getElementById('myModal');
     modal.style.display = "block";
 }
-  closeonclick = function() {
+  closeonclick() {
     let modal = document.getElementById('myModal');
     modal.style.display = "none";
 }
