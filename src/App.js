@@ -83,14 +83,7 @@ class App extends Component {
 
   }*/
   
-  onclick() {
-    let modal = document.getElementById('myModal');
-    modal.style.display = "block";
-}
-  closeonclick() {
-    let modal = document.getElementById('myModal');
-    modal.style.display = "none";
-}
+  
 
 
 }
