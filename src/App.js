@@ -50,25 +50,48 @@ class App extends Component {
       <nav>
         <header id="header">Jewellery Collection</header>
       </nav>
-        <User/>
-        <div >
-        
-          <form id="add-todo" onSubmit={this.handleSubmit.bind(this)}>
-            <label>Image url:</label>
-            <input type="text" required ref="NewImage"/>
-            <label>Name</label>
-            <input type="text" required ref="NewName"/>
-            <label>Type</label>
-            <input type="text" required ref="NewType"/>
-            <label>Material</label>
-            <input type="text" required ref="NewMaterial"/>
-            <br/>
-            <input type="submit" value="Add Item" />
+        <User/>  
+        <ul className="grid-container">{lis}</ul>
+        <div className="form-container">
+            <form id="form" onSubmit={this.handleSubmit.bind(this)}>
+            <div className="row">
+              <div className="col-20">
+                <label>Image url</label>
+              </div>
+              <div className="col-80">
+                <input type="text" required ref="NewImage"/>
+              </div>  
+            </div>
+            <div className="row">
+              <div className="col-20">
+                <label>Name</label>
+              </div>
+              <div className="col-80">
+                <input type="text" required ref="NewName"/>
+              </div>  
+            </div>
+            <div className="row">
+              <div className="col-20">
+                <label>Type</label>
+              </div>
+              <div className="col-80">
+                <input type="text" required ref="NewType"/>
+              </div>  
+            </div>
+            <div className="row">
+              <div className="col-20">
+                <label>Material</label>
+              </div>
+              <div className="col-80">
+                <input type="text" required ref="NewMaterial"/>
+               </div>  
+            </div>
+            <div className="row">
+                <input type="submit" value="Add Item" />
+            </div>
         </form>
-          <ul className="grid-container">{lis}</ul>
-          
         </div>
-
+          
       </div>
     );
   }
