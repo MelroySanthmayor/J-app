@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import image from '../dummy-user.png'
 
 export default class Itemlist extends Component{
 
@@ -11,7 +11,7 @@ export default class Itemlist extends Component{
            
             <li  className="grid-item">
                     
-            <img className="Img" src={this.props.image} alt="error" onClick={this.onclick} />
+            <img className="Img" src={this.props.image} alt={image} onClick={this.onclick} />
             <div id="myModal" className="modal">
             <div className="modal-content">
             <div className="modal-header">    
@@ -29,7 +29,8 @@ export default class Itemlist extends Component{
             </div>
            
             <div className="container1">
-            {this.props.name}
+            <p>{this.props.name}</p>
+            <p>{this.props.material}</p>
             </div>
             <span className="close1" onClick={this.props.Delete}>&times;</span>
             
@@ -39,7 +40,7 @@ export default class Itemlist extends Component{
         );
 
     }
-    onclick(i) {
+    onclick() {
         let modal = document.getElementById('myModal');
         modal.style.display = "block";
     }
