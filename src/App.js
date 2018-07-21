@@ -7,13 +7,13 @@ import ring from './ring.jpg'
 import './App.css';
 
 import Itemlist from './components/Itemlist'
-import AddItem from './components/AddItem'
+
 
 class App extends Component {
   
   state = {
     items:[{image:ring,name:'Ring',type:'1',material:'gold'},
-           {image:necklace,name:'Necklace',type:'2',material:'silver'},
+           {image:necklace,name:'Necklace',type:'2',material:'gold'},
            {image:bracelet,name:'Bracelet',type:'3',material:'platinum'},
            {image:bracelet,name:'Bracelet',type:'3',material:'platinum'},
            {image:ring,name:'Ring',type:'3',material:'platinum'}
@@ -52,7 +52,19 @@ class App extends Component {
       </nav>
         <User/>
         <div >
-          <strong><h2>User Jewellry Collection</h2></strong>
+        
+          <form id="add-todo" onSubmit={this.handleSubmit.bind(this)}>
+            <label>Image url:</label>
+            <input type="text" required ref="NewImage"/>
+            <label>Name</label>
+            <input type="text" required ref="NewName"/>
+            <label>Type</label>
+            <input type="text" required ref="NewType"/>
+            <label>Material</label>
+            <input type="text" required ref="NewMaterial"/>
+            <br/>
+            <input type="submit" value="Add Item" />
+        </form>
           <ul className="grid-container">{lis}</ul>
           
         </div>
@@ -71,6 +83,21 @@ class App extends Component {
     
     this.state.items.splice(i,1);*/
 
+  }
+  handleSubmit(e){
+    e.preventDefault();
+    const items = Object.assign([],this.state.items);
+    this.setState({
+       items : [...items,
+                {image:this.refs.NewImage.value,
+                  name:this.refs.NewName.value,
+                  type:this.refs.NewType.value,
+                  material:this.refs.NewMaterial.value
+                }
+
+      ]
+    })
+    e.target.reset();
   }
   /*onAdd(item){
       var updateditems = this.state.items
