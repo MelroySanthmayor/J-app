@@ -11,32 +11,41 @@ export default class Itemlist extends Component{
            
             <li  className="grid-item">
                     
-            <img className="Img" src={this.props.image} alt="error" />
-            <div id="myModal" class="modal">
-            <div class="modal-content">
-            <div class="modal-header">    
-            <span class="close">&times;</span>
+            <img className="Img" src={this.props.image} alt="error" onClick={this.onclick} />
+            <div id="myModal" className="modal">
+            <div className="modal-content">
+            <div className="modal-header">    
+            <span className="close" onClick={this.closeonclick}>&times;</span>
                <h2>Item Details</h2>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <p>Type:{this.props.type}</p>
               <p>Material:{this.props.material}</p>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
             <h3>{this.props.name}</h3>
             </div>
             </div>
             </div>
+           
             <div className="container1">
             {this.props.name}
             </div>
-            <span class="close1" onClick={this.props.Delete}>&times;</span>
+            <span className="close1" onClick={this.props.Delete}>&times;</span>
             
           </li>
 
 
         );
 
+    }
+    onclick(i) {
+        let modal = document.getElementById('myModal');
+        modal.style.display = "block";
+    }
+      closeonclick() {
+        let modal = document.getElementById('myModal');
+        modal.style.display = "none";
     }
   
 }
