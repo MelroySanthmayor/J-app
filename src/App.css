@@ -103,6 +103,9 @@ li:hover{
 /* The Modal (background) */
 .modal {
   display:none; /* Hidden by default */
+}
+.modal-active{
+  display:block; /*Modal visible */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 200px; /* Location of the box */
@@ -114,7 +117,6 @@ li:hover{
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 /* Modal Content */
 .modal-content {
   position: relative;
