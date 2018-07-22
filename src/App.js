@@ -27,10 +27,8 @@ class App extends Component {
             let  lis = items.map(function(item,i){
                   return(
                     <Itemlist key={i} index={i} 
-                    image={item.image} 
-                    name={item.name} 
-                    type={item.type} 
-                    material={item.material}
+                    item={item} 
+                    
                     Delete={that.onDelete.bind(that, i)}/>
                // Use Bucky method
                     
@@ -56,7 +54,7 @@ class App extends Component {
             <form id="form" onSubmit={this.handleSubmit.bind(this)}>
             <div className="row">
               <div className="col-20">
-                <label>Image url</label>
+                <label>Image address</label>
               </div>
               <div className="col-80">
                 <input type="text" required ref="NewImage"/>
@@ -122,20 +120,6 @@ class App extends Component {
     })
     e.target.reset();
   }
-  /*onAdd(item){
-      var updateditems = this.state.items
-      updateditems.push(item);
-      this.setState({
-          //items: updatedtodos
-          items : [...updateditems,
-          {image:image,name:'Ring',type:'1',material:'gold'}]// trying to render one static addition of the input
-      })
-
-  }*/
-  
-  
-
-
 }
 
 export default App;
