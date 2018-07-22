@@ -2,33 +2,34 @@ import React, { Component } from 'react';
 import image from '../dummy-user.png'
 
 export default class Itemlist extends Component{
-
+    state = {
+        bool : true
+    }
     render(){
-
+        let modal_class = this.state.bool ? "modal" :"modal-active";
 
 
         return(
            
             <li  key={this.props.key} className="grid-item">
 
-            <div id="myModal" className="modal">
+            <img className="Img" src={`${this.props.item.image}`} alt={image} onClick={this.onclick.bind(this)} />
+
+            <div id='myModal' className={modal_class}>
             <div className="modal-content">
             <div className="modal-header">    
-            <span className="close" onClick={this.closeonclick}>&times;</span>
-               <h2>Item Details</h2>
+            <span className="close" onClick={this.closeonclick.bind(this)}>&times;</span>
+                <h2>Item Details</h2>
             </div>
             <div className="modal-body">
-              <p>Type:{this.props.item.type}</p>
-              <p>Material:{this.props.item.material}</p>
+                <p>Type:{this.props.item.type}</p>
+                <p>Material:{this.props.item.material}</p>
             </div>
             <div className="modal-footer">
             <h3>{this.props.item.name}</h3>
             </div>
             </div>
             </div>
-
-            <img className="Img" src={`${this.props.item.image}`} alt={image} onClick={this.onclick} />
-
            
            
             <div className="container1">
@@ -44,13 +45,21 @@ export default class Itemlist extends Component{
 
     }
     onclick() {
-        let modal = document.getElementById('myModal');
-        modal.style.display = "block";
+        this.setState({
+            bool : !this.state.bool
+        })
+        /*let modal = document.getElementById(`${this.props.key}`);
+        modal.style.display = "block";*/
+       
+       
 
     }
-      closeonclick() {
-        let modal = document.getElementById('myModal');
-        modal.style.display = "none";
-    }
+    closeonclick(){
+        this.setState({
+            bool : !this.state.bool
+        })
+        /*let modal = document.getElementById('myModal');
+        modal.style.display = "none";*/
+    } 
   
 }
