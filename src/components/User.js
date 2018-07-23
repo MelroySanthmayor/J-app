@@ -15,17 +15,22 @@ export default class User extends Component{
     render(){
         
         return(
-        
+        <div className="parallax">
             <div className="card">   
                 <img className="Image" src={this.state.image} alt="error"/>
                 <div className="container">
-                <strong>Name:{this.state.name}</strong><br/>
-                <strong>Age:{this.state.age}</strong><br/>
-                <strong>Email:{this.state.email}</strong><br/>
-                <strong>Contact.No:{this.state.contact}</strong><br/>
+                    <h1><strong>{this.state.name}</strong></h1><br/>
+                    <strong>Age:{this.state.age}</strong><br/>
+                    <strong>Email:{this.state.email}</strong><br/>
+                    <strong>Contact.No:{this.state.contact}</strong><br/>
+                    <div className="social-media">
+                        <a className="a-tag" href="#"><i class="fa fa-twitter"></i></a>  
+                        <a className="a-tag" href="#"><i class="fa fa-linkedin"></i></a>  
+                        <a className="a-tag" href="#"><i class="fa fa-facebook"></i></a>
+                    </div>
                 </div>
             </div> 
-            
+        </div>    
 
         );
     }
