@@ -11,7 +11,7 @@ export default class Itemlist extends Component{
 
         return(
            
-            <li  key={this.props.key} className="grid-item">
+            <li className="grid-item">
 
             <img className="Img" src={`${this.props.item.image}`} alt={image} onClick={this.onclick.bind(this)} />
             
