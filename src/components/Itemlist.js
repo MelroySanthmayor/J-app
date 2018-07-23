@@ -14,7 +14,7 @@ export default class Itemlist extends Component{
             <li  key={this.props.key} className="grid-item">
 
             <img className="Img" src={`${this.props.item.image}`} alt={image} onClick={this.onclick.bind(this)} />
-
+            
             <div id='myModal' className={modal_class}>
             <div className="modal-content">
             <div className="modal-header">    
@@ -22,19 +22,20 @@ export default class Itemlist extends Component{
                 <h2>Item Details</h2>
             </div>
             <div className="modal-body">
-                <p>Type:{this.props.item.type}</p>
-                <p>Material:{this.props.item.material}</p>
+                <p><strong>Name:{this.props.item.name}</strong></p>
+                <p><strong>Type:{this.props.item.type}</strong></p>
+                <p><strong>Material:{this.props.item.material}</strong></p>
             </div>
             <div className="modal-footer">
             <h3>{this.props.item.name}</h3>
             </div>
             </div>
             </div>
-           
+            
            
             <div className="container1">
-            <p>{this.props.item.name}</p>
-            <p>{this.props.item.material}</p>
+            <p><strong>{this.props.item.name}</strong></p>
+        
             </div>
             <span className="close1" onClick={this.props.Delete}>&times;</span>
             
