@@ -47,17 +47,21 @@ class App extends Component {
       <div className="App">
       <nav>
         <header id="header">Jewellery Collection</header>
+        <a href="#Items">User Items</a>
+        <a href="#Additem">Add Items</a>
       </nav>
         <User/>  
+        <a className="nav" name="Items"></a>
         <ul className="grid-container">{lis}</ul>
+        <a className="nav" name="Additem"></a>
         <div className="form-container">
             <form id="form" onSubmit={this.handleSubmit.bind(this)}>
             <div className="row">
               <div className="col-20">
-                <label>Image address</label>
+                <label>Image</label>
               </div>
               <div className="col-80">
-                <input type="text" required ref="NewImage"/>
+                <input type="text" required ref="NewImage" placeholder="Enter the Image address url"/>
               </div>  
             </div>
             <div className="row">
@@ -65,7 +69,7 @@ class App extends Component {
                 <label>Name</label>
               </div>
               <div className="col-80">
-                <input type="text" required ref="NewName"/>
+                <input type="text" required ref="NewName" placeholder="Enter the name of the item"/>
               </div>  
             </div>
             <div className="row">
@@ -73,7 +77,7 @@ class App extends Component {
                 <label>Type</label>
               </div>
               <div className="col-80">
-                <input type="text" required ref="NewType"/>
+                <input type="text" required ref="NewType" placeholder="Enter the type of the item"/>
               </div>  
             </div>
             <div className="row">
@@ -81,7 +85,7 @@ class App extends Component {
                 <label>Material</label>
               </div>
               <div className="col-80">
-                <input type="text" required ref="NewMaterial"/>
+                <input type="text" required ref="NewMaterial" placeholder="Enter the material of the item"/>
                </div>  
             </div>
             <div className="row">
