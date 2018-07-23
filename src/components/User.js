@@ -24,9 +24,9 @@ export default class User extends Component{
                     <strong>Email:{this.state.email}</strong><br/>
                     <strong>Contact.No:{this.state.contact}</strong><br/>
                     <div className="social-media">
-                        <a className="a-tag" href="#"><i class="fa fa-twitter"></i></a>  
-                        <a className="a-tag" href="#"><i class="fa fa-linkedin"></i></a>  
-                        <a className="a-tag" href="#"><i class="fa fa-facebook"></i></a>
+                        <a className="a-tag" href="#"><i className="fa fa-twitter"></i></a>  
+                        <a className="a-tag" href="#"><i className="fa fa-linkedin"></i></a>  
+                        <a className="a-tag" href="#"><i className="fa fa-facebook"></i></a>
                     </div>
                 </div>
             </div> 
