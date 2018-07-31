@@ -5,7 +5,7 @@ import bracelet from './bracelet.jpg'
 import necklace from './necklace.jpg'
 import ring from './ring.jpg'
 import './App.css';
-
+import Edit from './components/Edit'
 import Itemlist from './components/Itemlist'
 
 
@@ -28,9 +28,9 @@ class App extends Component {
                   return(
                     <Itemlist key={i} index={i} 
                     item={item} 
-                    
+                    onUpdate={that.onUpdate.bind(that, i)}
                     Delete={that.onDelete.bind(that, i)}/>
-               // Use Bucky method
+               
                     
                   )
                   
@@ -93,7 +93,7 @@ class App extends Component {
             </div>
         </form>
         </div>
-          
+         
       </div>
     );
   }
@@ -102,11 +102,22 @@ class App extends Component {
     const items = Object.assign([],this.state.items);
     items.splice(i,1);
     this.setState({items:items})
-
-
     /*var i = this.state.items.indexOf(item);
-    
     this.state.items.splice(i,1);*/
+  }
+  onUpdate(Item,i,e){
+
+    //const index = this.state.items.findIndex((item)=>{
+    //  return items[i]===item;
+    //});
+
+    const item = Object.assign({},this.state.items[i]);
+    
+    const items = Object.assign([],this.state.items)
+    items[i] = Item;
+    this.setState({
+      items:items
+    })
 
   }
   handleSubmit(e){
