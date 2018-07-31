@@ -5,7 +5,6 @@ import bracelet from './bracelet.jpg'
 import necklace from './necklace.jpg'
 import ring from './ring.jpg'
 import './App.css';
-import Edit from './components/Edit'
 import Itemlist from './components/Itemlist'
 
 
