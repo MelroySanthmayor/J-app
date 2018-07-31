@@ -350,4 +350,18 @@ input[type=submit]:hover {
   text-decoration: none;
   cursor: pointer;
 }
-
+.Edit{
+  border-radius:5px;
+  color:white;
+  background-color: #4CAF50;
+  text-decoration: none;
+  cursor: pointer;
+  padding:5px 12px;
+  border:none;
+  text-align:center;
+  font-weight: bold;
+}
+.Edit:hover{
+  color:#4CAF50;
+  background-color: rgb(38, 38, 38);
+}
