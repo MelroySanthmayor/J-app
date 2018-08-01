@@ -13,13 +13,13 @@ export default class Itemlist extends Component{
     render(){
         let modal_class = this.state.bool ? "modal" : "modal-active";
         let edit_class = this.state.editing ? "edit-inactive" : "edit-active";
-
+        let index = this.props.index;
 
         return(
            
-            <li className="grid-item">
+            <li className="grid-item" >
 
-            <img className="Img" src={`${this.state.image}`} alt={image} onClick={this.onclick.bind(this)} />
+            <img className="Img" src={`${this.props.item.image}`} alt={image} onClick={this.onclick.bind(this)} />
             
             <div id='myModal' className={modal_class}>
             <div className="modal-content">
@@ -28,12 +28,12 @@ export default class Itemlist extends Component{
                 <h2>Item Details</h2>
             </div>
             <div className="modal-body">
-                <p><strong>Name:{this.state.name}</strong></p>
-                <p><strong>Type:{this.state.type}</strong></p>
-                <p><strong>Material:{this.state.material}</strong></p>
+                <p><strong>Name:{this.props.item.name}</strong></p>
+                <p><strong>Type:{this.props.item.type}</strong></p>
+                <p><strong>Material:{this.props.item.material}</strong></p>
             </div>
             <div className="modal-footer">
-            <h3>{this.state.name}</h3>
+            <h3>{this.props.item.name}</h3>
             </div>
             </div>
             </div>
@@ -90,11 +90,11 @@ export default class Itemlist extends Component{
         
            
             <div className="container1">
-            <p><strong>{this.state.name}</strong></p>
+            <p><strong>{this.props.item.name}</strong></p>
         
             </div>
             <button className="Edit" onClick={this.editing.bind(this)}>Edit</button>
-            <span className="close1" onClick={this.props.Delete}>&times;</span>
+            <span className="close1" onClick={this.props.Delete.bind(this.props.index)}>&times;</span>
             
           </li>
 
@@ -132,13 +132,13 @@ export default class Itemlist extends Component{
             type:this.refs.UpdateType.value,
             material:this.refs.UpdateMaterial.value
         });
-        const item = {
+        const li_item = {
             image:this.refs.UpdateImage.value,
             name:this.refs.UpdateName.value,
             type:this.refs.UpdateType.value,
             material:this.refs.UpdateMaterial.value
         }
-        this.props.onUpdate(item)
+        this.props.onUpdate(li_item)
     }
   
 }
