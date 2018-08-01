@@ -104,13 +104,13 @@ class App extends Component {
     /*var i = this.state.items.indexOf(item);
     this.state.items.splice(i,1);*/
   }
-  onUpdate(Item,i,e){
+  onUpdate(Item,i){
 
     //const index = this.state.items.findIndex((item)=>{
     //  return items[i]===item;
     //});
 
-    const item = Object.assign({},this.state.items[i]);
+    const item = Object.assign([],this.state.items[i]);
     
     const items = Object.assign([],this.state.items)
     items[i] = Item;
